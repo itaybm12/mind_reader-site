@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <title>מחשבות</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      direction: rtl;
+    }
+    h1 {
+      font-size: 2em;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="result">טוען...</h1>
+
+  <script>
+    fetch("message.txt")
+      .then(res => res.text())
+      .then(text => {
+        document.getElementById("result").innerText = text;
+      })
+      .catch(err => {
+        document.getElementById("result").innerText = "שגיאה בטעינת המסר.";
+      });
+  </script>
+</body>
+</html>
